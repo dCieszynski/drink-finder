@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src",
-    "test": "vitest --coverage --watch"
+    "test": "vitest --coverage"
   },
   "release": {
     "branches": [
@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",

@@ -2,7 +2,16 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        castoro: ["Castoro", "serif"],
+        "castoro-titling": ["Castoro Titling, cursive"],
+      },
+      colors: {
+        "background-from": "#511c7b",
+        "background-to": "#003c68",
+      },
+    },
   },
   plugins: [],
 };
