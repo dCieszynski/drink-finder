@@ -1,4 +1,7 @@
 import React from "react";
+import { BiDrink } from "react-icons/bi";
+import { MdNoDrinks, MdOutlineLocalDrink } from "react-icons/md";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 function Home() {
   return (
@@ -7,6 +10,15 @@ function Home() {
         <div>CHOOSE</div>
         <div>YOUR DRINK</div>
       </h1>
+      <Sidebar
+        content={
+          <Sidebar.Content>
+            <Sidebar.Button Icon={BiDrink} title="Alcohol" onClick={() => {}} />
+            <Sidebar.Button Icon={MdNoDrinks} title="Non-Alcohol" onClick={() => {}} />
+            <Sidebar.Button Icon={MdOutlineLocalDrink} title="Optional" onClick={() => {}} />
+          </Sidebar.Content>
+        }
+      />
     </div>
   );
 }
