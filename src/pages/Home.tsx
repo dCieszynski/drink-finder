@@ -1,7 +1,16 @@
 import React from "react";
 import { BiDrink } from "react-icons/bi";
 import { MdNoDrinks, MdOutlineLocalDrink } from "react-icons/md";
+import { AiFillHome } from "react-icons/ai";
 import Sidebar from "../components/Sidebar/Sidebar";
+import Navbar from "../components/Navbar/Navbar";
+
+const links = [
+  {
+    Icon: AiFillHome,
+    to: "/",
+  },
+];
 
 function Home() {
   return (
@@ -17,6 +26,15 @@ function Home() {
             <Sidebar.Button Icon={MdNoDrinks} title="Non-Alcohol" onClick={() => {}} />
             <Sidebar.Button Icon={MdOutlineLocalDrink} title="Optional" onClick={() => {}} />
           </Sidebar.Content>
+        }
+      />
+      <Navbar
+        links={links}
+        gap="16"
+        action={
+          <Navbar.Action gap="16">
+            <Navbar.Search />
+          </Navbar.Action>
         }
       />
     </div>
