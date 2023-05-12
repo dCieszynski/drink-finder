@@ -15,7 +15,7 @@ const links = [
 function Home() {
   return (
     <div className="p-4 min-h-screen text-white bg-gradient-to-br from-background-from to-background-to">
-      <h1 className="text-4xl font-castoro-titling flex flex-col gap-2">
+      <h1 className="pl-16 text-3xl font-castoro flex flex-col gap-2 ">
         <div>CHOOSE</div>
         <div>YOUR DRINK</div>
       </h1>
@@ -30,9 +30,9 @@ function Home() {
       />
       <Navbar
         links={links}
-        gap="16"
+        gap="gap-16"
         action={
-          <Navbar.Action gap="16">
+          <Navbar.Action gap="gap-16">
             <Navbar.Search />
           </Navbar.Action>
         }

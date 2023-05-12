@@ -5,7 +5,7 @@ type Props = PropsWithChildren & {
 };
 
 function NavbarAction({ children, gap }: Props) {
-  return <div className={`flex gap-${gap}`}>{children}</div>;
+  return <div className={`flex ${gap && gap} hover:text-active-yellow`}>{children}</div>;
 }
 
 export default NavbarAction;

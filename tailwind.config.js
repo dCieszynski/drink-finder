@@ -5,7 +5,6 @@ export default {
     extend: {
       fontFamily: {
         castoro: ["Castoro", "serif"],
-        "castoro-titling": ["Castoro Titling, cursive"],
       },
       colors: {
         "background-from": "#511c7b",

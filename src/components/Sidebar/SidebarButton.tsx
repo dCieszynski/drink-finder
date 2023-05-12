@@ -23,7 +23,7 @@ function SidebarButton({ Icon, title, onClick }: Props) {
       onClick={(e) => handleClick(e)}
       className={`w-16 h-[100px] text-xs font-castoro text-dark ${
         activeButtonTitle === title ? "bg-active-yellow text-dark" : "bg-dark text-white"
-      } flex flex-col justify-center items-center gap-1 rounded-tr-xl rounded-br-xl`}
+      } flex flex-col justify-center items-center gap-1 rounded-tr-xl rounded-br-xl ${activeButtonTitle !== title && "hover:text-active-yellow"}`}
     >
       <Icon className="text-[32px]" />
       {title}
