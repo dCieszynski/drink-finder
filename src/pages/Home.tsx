@@ -4,6 +4,7 @@ import { MdNoDrinks, MdOutlineLocalDrink } from "react-icons/md";
 import { AiFillHome } from "react-icons/ai";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Navbar from "../components/Navbar/Navbar";
+import List from "../components/List/List";
 
 const links = [
   {
@@ -28,6 +29,9 @@ function Home() {
           </Sidebar.Content>
         }
       />
+      <div className="ml-16 mt-12">
+        <List />
+      </div>
       <Navbar
         links={links}
         gap="gap-16"
