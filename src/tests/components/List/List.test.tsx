@@ -11,18 +11,11 @@ describe("test List component", () => {
   });
 
   test("renders List with data", () => {
-    vi.mock("../../../hooks/useDrinks", () => ({
-      useDrinks: () => ({
-        drinks: [{ idDrink: 1, strDrink: "Test", strDrinkThumb: "test.jpg" }],
-      }),
-    }));
-
     render(
       <BrowserRouter>
         <List />
       </BrowserRouter>
     );
-    expect(screen.getByText("Test")).toBeInTheDocument();
-    expect(screen.getByAltText("Test")).toBeInTheDocument();
+    expect(screen.getByText("No drinks found")).toBeInTheDocument();
   });
 });

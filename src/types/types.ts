@@ -128,3 +128,13 @@ export type TDrinkDetails = {
   strCreativeCommonsConfirmed: string;
   dateModified: string;
 };
+
+export type TFilter = "alcoholic" | "non_alcoholic" | "optional_alcohol" | "searched";
+
+export type TDrinksContext = {
+  list: TDrinksList | null;
+  searchInput: string;
+  setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+  filter: string;
+  setFilter: React.Dispatch<React.SetStateAction<TFilter>>;
+};

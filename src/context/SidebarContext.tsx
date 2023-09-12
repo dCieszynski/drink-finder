@@ -1,9 +1,11 @@
-import React, { PropsWithChildren, createContext, useCallback, useContext, useMemo, useState } from "react";
-import { TSidebarContext } from "../types/types";
+import React, { PropsWithChildren, createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { TFilter, TSidebarContext } from "../types/types";
+import { useDrinksContext } from "./DrinksContext";
 
 const SidebarContext = createContext<TSidebarContext | null>(null);
 
 export function SidebarContextProvider({ children }: PropsWithChildren) {
+  const drinkContext = useDrinksContext();
   const [activeButtonTitle, setActiveButtonTitle] = useState<string>("");
 
   const changeActiveButtonTitle = useCallback(
@@ -12,6 +14,10 @@ export function SidebarContextProvider({ children }: PropsWithChildren) {
     },
     [setActiveButtonTitle]
   );
+
+  useEffect(() => {
+    drinkContext?.setFilter(activeButtonTitle.toLowerCase().replaceAll(/[\s-]/g, "_") as TFilter);
+  }, [drinkContext, activeButtonTitle]);
 
   const valueMemo = useMemo(() => ({ activeButtonTitle, changeActiveButtonTitle }), [activeButtonTitle, changeActiveButtonTitle]);
 
