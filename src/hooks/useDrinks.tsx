@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 
 import { useCallback, useEffect, useState } from "react";
-import { TDrinksList } from "../types/types";
+import { TDrinksList, TFilter } from "../types/types";
 
-export const useDrinks = (filter: "alcoholic" | "non_alcoholic" | "optional_alcohol") => {
+export const useDrinks = (filter: TFilter, searchStr: string) => {
   const [drinksList, setDrinksList] = useState<TDrinksList | null>(null);
 
   const fetchDrinks = useCallback(async () => {
@@ -14,9 +14,18 @@ export const useDrinks = (filter: "alcoholic" | "non_alcoholic" | "optional_alco
     }
   }, [filter]);
 
+  const fetchSearchedDrinks = useCallback(async () => {
+    const respone = await fetch(`www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchStr}`);
+    if (respone && respone.ok) {
+      const data = await respone.json();
+      setDrinksList(data);
+    }
+  }, [searchStr]);
+
   useEffect(() => {
-    fetchDrinks();
-  }, [fetchDrinks]);
+    if (searchStr.length === 0) fetchDrinks();
+    else fetchSearchedDrinks();
+  }, [fetchDrinks, fetchSearchedDrinks, searchStr.length]);
 
   return drinksList;
 };
