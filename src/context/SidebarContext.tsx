@@ -16,7 +16,7 @@ export function SidebarContextProvider({ children }: PropsWithChildren) {
   );
 
   useEffect(() => {
-    drinkContext?.setFilter(activeButtonTitle.toLowerCase().replaceAll(/[\s-]/g, "_") as TFilter);
+    drinkContext?.setFilter(activeButtonTitle !== "" ? (activeButtonTitle.toLowerCase().replaceAll(/[\s-]/g, "_") as TFilter) : "alcoholic");
   }, [drinkContext, activeButtonTitle]);
 
   const valueMemo = useMemo(() => ({ activeButtonTitle, changeActiveButtonTitle }), [activeButtonTitle, changeActiveButtonTitle]);
