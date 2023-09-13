@@ -15,10 +15,12 @@ export const useDrinks = (filter: TFilter, searchStr: string) => {
   }, [filter]);
 
   const fetchSearchedDrinks = useCallback(async () => {
-    const respone = await fetch(`www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchStr}`);
+    const respone = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchStr}`);
     if (respone && respone.ok) {
       const data = await respone.json();
       setDrinksList(data);
+    } else {
+      setDrinksList(null);
     }
   }, [searchStr]);
 
